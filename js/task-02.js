@@ -6,9 +6,18 @@ const ingredients = [
   'Herbs',
   'Condiments',
 ];
-const ulEl = document.querySelector('#ingredients');
-const list = ingredients.reduce((start, item) => start + `<li>${item}</li>`, '');
 
-ulEl.innerHTML = list;
+const ulRef = document.querySelector("#ingredients");
+
+const ingredientRef = ingredients.map((ingredient) => {
+  const liElem = document.createElement("li");
+  liElem.textContent = ingredient;
+  liElem.classList.add("item");
+  return liElem;
+});
+
+console.log(ingredientRef);
+
+ulRef.append(...ingredientRef);
 
 

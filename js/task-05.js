@@ -1,28 +1,24 @@
 
-const refs = {
-    input: document.querySelector('#name-input'),
-    nameLabel: document.querySelector('#name-output')
-};
+// const refs = {
+//     input: document.querySelector('#name-input'),
+//     nameLabel: document.querySelector('#name-output')
+// };
+// refs.input.addEventListener('input', onInputChange);
+// function onInputFocus() {
+//     console.log(' Импут получил фокус');
+// }
+// function onInputBlur() {
+//     console.log(' Импут потерял фокус');
+// }
+// function onInputChange(event) { 
+//     refs.nameLabel.textContent = event.currentTarget.value
+// }
 
-// refs.input.addEventListener('focus', onInputFocus);
-// refs.input.addEventListener('blur', onInputBlur);
+const inputRef = document.querySelector("#name-input");
+const spanRef = document.querySelector("#name-output");
 
-refs.input.addEventListener('input', onInputChange);
-
-
-function onInputFocus() {
-    console.log(' Импут получил фокус');
-}
-
-function onInputBlur() {
-    console.log(' Импут потерял фокус');
-}
-
-
-function onInputChange(event) {
-  
-    refs.nameLabel.textContent = event.currentTarget.value
-}
-
-
-
+inputRef.addEventListener("input", () => {
+  inputRef.value === ""
+    ? (spanRef.textContent = "Anonymous")
+    : (spanRef.textContent = inputRef.value);
+});
